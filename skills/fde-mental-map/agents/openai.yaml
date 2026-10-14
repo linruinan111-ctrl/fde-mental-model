@@ -1,0 +1,4 @@
+interface:
+  display_name: "FDE Mental Map"
+  short_description: "构建技术地图，理解架构与分层排障"
+  default_prompt: "请使用 $fde-mental-map 帮我建立这个技术问题的 Mental Model：解释为什么存在、画出上下游与请求流、指出常见故障和安全排查路径，并告诉我作为 FDE 学到什么程度足够。"
