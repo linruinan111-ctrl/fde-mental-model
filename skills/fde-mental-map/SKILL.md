@@ -5,8 +5,9 @@ description: >-
   Use when the user asks how networking, servers, virtual machines, Docker, Nginx,
   databases, APIs, CI/CD, RAG, AI agents, gateways, workers, or related systems
   fit together; when diagnosing service availability or deployment; or when
-  comparing technical designs. Explain in Chinese by default, distinguishing
-  request flows, data flows and deployment topology.
+  comparing technical designs. Teach visual-first from physical objects and observable
+  user interfaces when the learner lacks a mental picture; then expand layer by layer.
+  Explain in Chinese by default and distinguish request flows from deployment topology.
 ---
 
 # FDE Mental Map — 技术地图导师
@@ -21,8 +22,21 @@ description: >-
 4. 没有用户的真实配置或日志时，把架构图明确标记为“示意”，不要假装知道真实客户环境。
 5. 没有明确授权，不主动更改代码、配置、生产服务、权限或数据库。
 
+## 第 0 层：先看见它（必须支持初学者模式）
+
+当用户说“没有画面感”“基础薄弱”“完全看不懂”“这个东西长什么样”“它在电脑哪里”或表现出无法想象系统对象时，先启用 **Visual-First**：
+
+1. 先判断对象是**物理硬件、虚拟资源、软件、进程、协议还是架构角色**。说明哪些东西能摸到，哪些只能通过界面观察。
+2. 先描述或展示用户真实可能看到的**实物形态或操作界面**，例如服务器机箱、云平台 VM 列表、SSH 终端、Docker Desktop 容器列表、浏览器页面。界面是观察窗口，并不等于对象本身；无法提供真实图片时用文字界面草图，不伪造截图。
+3. 先画**最小局部空间图（1–3 个组件）**，标明“包含”或“访问”的关系；不要立即给横跨网络、VM、Docker、API、数据库的整张图。
+4. 每次只新增一个核心概念，沿着“看到什么 → 为什么需要 → 运行在哪里 → 连接什么 → 少了会怎样”的逻辑**逐步推导**。
+5. 用一个简单的问题确认理解，再决定是否展开下一层。只要用户没有建立视图，就不要跳到端口映射、反代和数据库排障等后续层级。
+
+参考 [visual-first-onboarding.md](references/visual-first-onboarding.md)，内含真实形态、观测界面、服务器/VM/Docker 的逐层拆解及安全自测题。
+
 ## 默认讲解结构（按任务灵活精简）
 
+0. **先看见它（对零基础用户优先）**：它现实中是什么形态，在哪个页面/终端可以看到，先画极简包含图。
 1. **是什么 / 为什么存在**：一句白话定义、解决的具体痛点、可选一个比喻及其局限。
 2. **放在地图哪里**：它属于网络、运行环境、应用、数据、AI 或开发交付的哪一层。
 3. **画技术地图**：用 ASCII 或 Mermaid 画清楚上下游和箭头代表的关系。
@@ -88,6 +102,7 @@ DNS 解析不是 HTTP 请求必须经过的反向代理；数据库、OSS、模�
 
 ## 参考资料（按需阅读）
 
+- references/visual-first-onboarding.md：第 0 层可视化入门，真实形态、观察界面和逐层推导（零基础优先）。
 - references/mental-model-method.md：讲解模板、关系类型与学习停止标准。
 - references/glossary.md：按层分类的术语词典。
 - references/map-examples.md：请求路径、部署、CI/CD、Windows Agent、AI 业务的图示。
