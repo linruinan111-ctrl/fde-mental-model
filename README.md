@@ -4,6 +4,25 @@
 
 主文件：**[SKILL.md](skills/fde-mental-map/SKILL.md)**。
 
+## 新增：第 0 层，先建立画面感（Visual-First）
+
+这是专门针对“听过术语，但完全想象不出系统长什么样”的学习方式。Codex 在解释架构之前，先带你看到：
+
+- **物理形态**：服务器是机房中的电脑；VM 是虚拟出来的计算环境；容器不是一个独立机箱。
+- **屏幕上能看见什么**：云平台 VM 列表、Linux SSH 终端、Docker Desktop/容器列表、浏览器里的应用。
+- **一层层展开**：先“物理服务器 → VM”，理解了再展开“VM → Linux → Docker → Container”。
+- **一次只认识少量概念**：通过类比、小图和一道简单自测题确认你真的理解了“包含”和“请求流”之间的区别。
+
+建议初学者先问：
+
+~~~text
+$fde-mental-map 我没有画面感，服务器、VM、Linux、Docker、容器在现实中分别是什么样？
+先从我的 Mac 开始，告诉我在什么界面能看到它们，每次只增加一层。
+不要直接上整张复杂架构图。
+~~~
+
+详细规则：[第 0 层：先看见它](skills/fde-mental-map/references/visual-first-onboarding.md)。
+
 ## 它能做什么？
 
 1. 把新概念放进一张技术地图：服务器、虚拟机、容器、Nginx、数据库、API、AI Agent……
@@ -28,6 +47,7 @@ fde-mental-model/
         ├── agents/
         │   └── openai.yaml
         └── references/
+            ├── visual-first-onboarding.md
             ├── mental-model-method.md
             ├── glossary.md
             ├── map-examples.md
