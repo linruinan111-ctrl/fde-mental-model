@@ -15,7 +15,7 @@ if ! grep -q '^description:' "$ROOT/SKILL.md"; then
   echo "INVALID: no description field" >&2
   exit 1
 fi
-for f in mental-model-method.md glossary.md map-examples.md troubleshooting.md; do
+for f in visual-first-onboarding.md mental-model-method.md glossary.md map-examples.md troubleshooting.md; do
   if [ ! -f "$ROOT/references/$f" ]; then
     echo "MISSING: $ROOT/references/$f" >&2
     exit 1
