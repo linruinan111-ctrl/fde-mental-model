@@ -4,8 +4,9 @@ description: >-
   Teach technical mental models and architecture maps for Forward Deployed Engineers.
   Use when the user asks how networking, servers, virtual machines, Docker, Nginx,
   databases, APIs, CI/CD, RAG, AI agents, gateways, workers, or related systems
-  fit together; when diagnosing service availability or deployment; or when
-  comparing technical designs. Teach visual-first from physical objects and observable
+  fit together; when diagnosing service availability or deployment; when
+  translating confusing AI explanations, error reports, logs or network tests
+  into plain language; or when comparing technical designs. Teach visual-first from physical objects and observable
   user interfaces when the learner lacks a mental picture; then expand layer by layer.
   Explain in Chinese by default and distinguish request flows from deployment topology.
 ---
@@ -16,7 +17,7 @@ description: >-
 
 ## 开始前
 
-1. 确认当前问题属于：概念入门 / 系统架构 / 故障排查 / 方案比较 / 实操 / 学习路径。
+1. 确认当前问题属于：概念入门 / 系统架构 / 故障排查 / **报错或 AI 解释翻译** / 方案比较 / 实操 / 学习路径。
 2. 区分**已经证实的事实**、**有依据的猜测**、**仍需核实的信息**。
 3. 优先解释原因和关系，再解释操作命令。用户是初学者时，首次出现的英文缩写要展开。
 4. 没有用户的真实配置或日志时，把架构图明确标记为“示意”，不要假装知道真实客户环境。
@@ -33,6 +34,21 @@ description: >-
 5. 用一个简单的问题确认理解，再决定是否展开下一层。只要用户没有建立视图，就不要跳到端口映射、反代和数据库排障等后续层级。
 
 参考 [visual-first-onboarding.md](references/visual-first-onboarding.md)，内含真实形态、观测界面、服务器/VM/Docker 的逐层拆解及安全自测题。
+
+## 报错翻译模式：先让用户听懂，再一起判断
+
+当用户粘贴其他 AI 的分析、终端错误、网络探测结果、配置或日志，并表示看不懂时，**优先**采用 [error-report-translator.md](references/error-report-translator.md)：
+
+1. **先复原现场**：哪些是本机、远程服务、AI 沙箱或其他出口？不同环境的测试结果分别归属哪一条路径？
+2. **一句大白话概括当前现象**，不要从抽象术语清单开始。
+3. **最小图示**：先画 2–5 个对象；用直白语言说明连接方向和发生了什么。
+4. **逐句翻译**：一次只解释 1–3 个必需术语，说明它属于哪个阶段；理解后再增加其他概念。
+5. **分清证据与猜测**：用“报告中的观察结果 / 可能原因 / 无法确定 / 最值得进一步核实的事实”，主动纠正“一定是”“可以确定不是”等无证据的断言。
+6. **只给一个低风险下一步**，明确检查设备、目的和不同结果的意义。不要没解释清楚就让用户运行许多命令、切换代理或修改配置。
+
+举例：DNS 解析成功不等于能访问网站；TCP 可以连接不等于 TLS 成功；timeout 也不等于绝对没有 IP 访问限制。不同网络出口的测试不应混成同一个结论。
+
+**节奏规则**：碰到初学者，不是要求每个回复一次讲满所有层级；以“看见场景 → 一句话解释 → 小图 → 少量术语 → 一个小验证”为默认顺序，用户能跟上再继续。不要借助大白话的名义把专业差别讲错。
 
 ## 默认讲解结构（按任务灵活精简）
 
@@ -103,6 +119,7 @@ DNS 解析不是 HTTP 请求必须经过的反向代理；数据库、OSS、模�
 ## 参考资料（按需阅读）
 
 - references/visual-first-onboarding.md：第 0 层可视化入门，真实形态、观察界面和逐层推导（零基础优先）。
+- references/error-report-translator.md：把 AI 分析、日志、超时等翻译为人话，同时识别证据、猜测与结论越界。
 - references/mental-model-method.md：讲解模板、关系类型与学习停止标准。
 - references/glossary.md：按层分类的术语词典。
 - references/map-examples.md：请求路径、部署、CI/CD、Windows Agent、AI 业务的图示。
